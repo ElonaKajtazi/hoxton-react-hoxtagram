@@ -9,12 +9,14 @@ type Props = {
   comments: CommentType[];
   deleteComment: (commentId: number) => void;
   deleteArticle: (imageId: number) => void;
+  createComment: (content: string, imageId: number) => void;
 };
 export function Article({
   image,
   comments,
   deleteComment,
   deleteArticle,
+  createComment,
 }: Props) {
   return (
     <article className="image-card">
@@ -40,7 +42,7 @@ export function Article({
           <ArticleComments comment={comment} deleteComment={deleteComment} />
         ) : null
       )}
-      <AddCommentForm />
+      <AddCommentForm createComment={createComment}  />
     </article>
   );
 }

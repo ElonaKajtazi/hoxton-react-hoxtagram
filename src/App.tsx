@@ -53,9 +53,9 @@ function App() {
 
   function createArticle(title: string, image: string) {
     let newImage = {
-      title: title,
+      title,
       likes: 0,
-      image: image,
+      image,
     };
 
     fetch("http://localhost:3000/images", {
@@ -70,6 +70,25 @@ function App() {
         setImages([...images, imagesFromServer]);
       });
   }
+  function createComment(content: string, imageId: number) {
+    let newComment = {
+      content,
+      imageId,
+   
+    };
+
+    fetch("http://localhost:3000/comments", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newComment),
+    })
+      .then((resp) => resp.json())
+      .then((commentsFromServer) => {
+        setComments([...comments, commentsFromServer]);
+      });
+  }
   return (
     <div className="App">
       <img className="logo" src="assets/hoxtagram-logo.png" />
@@ -78,6 +97,7 @@ function App() {
       <section className="image-container">
         {images.map((image) => (
           <Article
+            createComment={createComment}
             image={image}
             comments={comments}
             deleteComment={deleteComment}

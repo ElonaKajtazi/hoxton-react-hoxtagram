@@ -1,6 +1,15 @@
-export function AddCommentForm() {
+type Props = {
+  createComment: (content: string, imageId: number) => void;
+};
+export function AddCommentForm({ createComment, } : Props) {
   return (
-    <form className="comment-form">
+    <form
+      className="comment-form"
+      onSubmit={(event) => {
+        event.preventDefault();
+        createComment(event.target.text.value, event.target.imageId.value) ;
+      }}
+    >
       <input
         className="comment-input"
         type="text"
