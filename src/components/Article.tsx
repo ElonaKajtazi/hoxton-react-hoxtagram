@@ -5,8 +5,9 @@ import { ArticleComments } from "./ArticleComments";
 type Props = {
   image: ImageType;
   comments: CommentType[];
+  deleteComment: (commentId: number) => void;
 };
-export function Article({ image, comments }: Props) {
+export function Article({ image, comments, deleteComment }: Props) {
   return (
     <article className="image-card">
       <h2 className="title">{image.title}</h2>
@@ -18,7 +19,7 @@ export function Article({ image, comments }: Props) {
 
       {comments.map((comment) =>
         image.id === comment.imageId ? (
-       <ArticleComments comment={comment}/>
+          <ArticleComments comment={comment} deleteComment={deleteComment} />
         ) : null
       )}
     </article>

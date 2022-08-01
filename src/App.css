@@ -81,6 +81,23 @@ img {
   outline: none;
 }
 
+.form-container {
+  display: grid;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.image__top-section {
+  display: grid;
+  grid-template-columns: 1fr auto;
+}
+
+.image__delete-button {
+  all: unset;
+  cursor: pointer;
+  padding: 0.5em;
+}
+
 .comments {
   list-style-type: none;
   margin-left: 0;
@@ -89,9 +106,13 @@ img {
   border-top: 1px solid #00000020;
 }
 
-.comments li {
+.comment {
   margin: 2px 0;
   letter-spacing: 0.2px;
+
+  display: grid;
+  grid-template-columns: 1fr auto;
+  padding: 0 0.5rem;
 }
 
 .comment-form {
@@ -112,6 +133,7 @@ img {
 }
 
 .comment-button {
+  all: unset;
   border: none;
   font-size: 0.8rem;
   font-weight: 600;

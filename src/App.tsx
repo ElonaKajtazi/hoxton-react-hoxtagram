@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { AddArticleForm } from "./AddArticleForm";
 // Instructions
 // - Start a new React project ✅
 // - Copy the assets and the DB folder into your new project ✅
@@ -15,16 +16,17 @@ export type ImageType = {
   image: string;
   likes: number;
   comments: Comment[];
-}
+};
 export type CommentType = {
   id: number;
   content: string;
   imageId: number;
-}
+};
 
 function App() {
   const [images, setImages] = useState([]);
   const [comments, setComments] = useState([]);
+
   useEffect(() => {
     fetch("http://localhost:3000/images")
       .then((resp) => resp.json())
@@ -33,13 +35,29 @@ function App() {
       .then((resp) => resp.json())
       .then((commentsFromServer) => setComments(commentsFromServer));
   }, []);
+
+  function deleteComment(commentId: number) {
+    const commentsCopy = comments.filter(
+      (comment) => comment.imageId !== comment.id
+    );
+    fetch(`http://localhost:5000/comments/${id}`, {
+      method: "DELETE",
+    });
+    setComments(commentsCopy);
+  }
   return (
     <div className="App">
+      <AddArticleForm />
+
       <img className="logo" src="assets/hoxtagram-logo.png" />
 
       <section className="image-container">
         {images.map((image) => (
-          <Article image={image} comments={comments} />
+          <Article
+            image={image}
+            comments={comments}
+            deleteComment={deleteComment}
+          />
         ))}
       </section>
     </div>
@@ -47,5 +65,3 @@ function App() {
 }
 
 export default App;
-{
-}
