@@ -32,7 +32,17 @@
       "imageId": 2
     },
     {
+      "id": 2,
+      "content": "Cute coder cats!",
+      "imageId": 2
+    },
+    {
       "content": "Love it",
+      "imageId": 3,
+      "id": 8
+    },
+    {
+      "content": "Wish I was there",
       "imageId": 3,
       "id": 8
     }
