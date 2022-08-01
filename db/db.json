@@ -1,0 +1,40 @@
+{
+  "images": [
+    {
+      "id": 2,
+      "title": "Coder cats",
+      "likes": 13,
+      "image": "./assets/coder-cat.jpeg",
+      "comments": [
+        {
+          "id": 2,
+          "content": "He has the paws for this!",
+          "imageId": 2
+        },
+        {
+          "id": 3,
+          "content": "Someone's in trouble!",
+          "imageId": 2
+        }
+      ]
+    },
+    {
+      "title": "Take me back!",
+      "likes": 3,
+      "image": "https://images.pexels.com/photos/1174732/pexels-photo-1174732.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "id": 3
+    }
+  ],
+  "comments": [
+    {
+      "id": 2,
+      "content": "He has the paws for this!",
+      "imageId": 2
+    },
+    {
+      "content": "Love it",
+      "imageId": 3,
+      "id": 8
+    }
+  ]
+}
