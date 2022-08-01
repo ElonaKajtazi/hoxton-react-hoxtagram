@@ -51,19 +51,29 @@ function App() {
     setImages(imagesCopy);
   }
 
-  // function addLike (id: number) {
-  //   const imagesCopy = images.map((image) => {
-   
-  //       image.likes += 1;
-    
-  //   }
-  //   );
-  //   setImages(imagesCopy);
-  // }
+  function createArticle(title: string, image: string) {
+    let newImage = {
+      title: title,
+      likes: 0,
+      image: image,
+    };
+
+    fetch("http://localhost:3000/images", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newImage),
+    })
+      .then((resp) => resp.json())
+      .then((imagesFromServer) => {
+        setImages([...images, imagesFromServer]);
+      });
+  }
   return (
     <div className="App">
       <img className="logo" src="assets/hoxtagram-logo.png" />
-      <AddArticleForm />
+      <AddArticleForm createArticle={createArticle} />
 
       <section className="image-container">
         {images.map((image) => (
