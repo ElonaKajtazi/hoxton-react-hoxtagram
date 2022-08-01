@@ -42,17 +42,28 @@ function App() {
       method: "DELETE",
     });
     setComments(commentsCopy);
-    // const todosCopy = todos.filter(todo => todo.id !== id)
-
-    // fetch(`http://localhost:3000/todos/${id}`, {
-    //   method: 'DELETE'
   }
+  function deleteArticle(id: number) {
+    const imagesCopy = images.filter((image) => image.id !== id);
+    fetch(`http://localhost:3000/images${id}`, {
+      method: "DELETE",
+    });
+    setImages(imagesCopy);
+  }
+
+  // function addLike (id: number) {
+  //   const imagesCopy = images.map((image) => {
+   
+  //       image.likes += 1;
+    
+  //   }
+  //   );
+  //   setImages(imagesCopy);
+  // }
   return (
     <div className="App">
- 
       <img className="logo" src="assets/hoxtagram-logo.png" />
       <AddArticleForm />
-
 
       <section className="image-container">
         {images.map((image) => (
@@ -60,6 +71,7 @@ function App() {
             image={image}
             comments={comments}
             deleteComment={deleteComment}
+            deleteArticle={deleteArticle}
           />
         ))}
       </section>

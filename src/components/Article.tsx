@@ -8,13 +8,26 @@ type Props = {
   image: ImageType;
   comments: CommentType[];
   deleteComment: (commentId: number) => void;
+  deleteArticle: (imageId: number) => void;
 };
-export function Article({ image, comments, deleteComment }: Props) {
+export function Article({
+  image,
+  comments,
+  deleteComment,
+  deleteArticle,
+}: Props) {
   return (
     <article className="image-card">
       <div className="image__top-section">
         <h2 className="title">{image.title}</h2>
-        <button className="image__delete-button">❌</button>
+        <button
+          className="image__delete-button"
+          onClick={() => {
+            deleteArticle(image.id);
+          }}
+        >
+          ❌
+        </button>
       </div>
       <img src={image.image} className="image" />
       <div className="likes-section">

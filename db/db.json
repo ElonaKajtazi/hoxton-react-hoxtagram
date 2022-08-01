@@ -27,24 +27,24 @@
   ],
   "comments": [
     {
-      "id": 2,
-      "content": "Cute coder cats!",
-      "imageId": 2
-    },
-    {
       "content": "Love it",
       "imageId": 3,
-      "id": 8
+      "id": 1
     },
     {
       "content": "Wish I was there",
       "imageId": 3,
-      "id": 8
+      "id": 2
     },
     {
-      "content": "vbn",
+      "content": "Cutest catsss",
       "imageId": 2,
-      "id": 9
+      "id": 3
+    },
+    {
+      "content": "Hello",
+      "imageId": 2,
+      "id": 4
     }
   ]
 }
