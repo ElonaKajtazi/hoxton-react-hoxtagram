@@ -5,9 +5,22 @@ import { useEffect, useState } from "react";
 // - Use the HTML inside index.html as a reference to build your React App and components. ✅
 // - Separate the CSS into smaller files
 // - Just like before in the original, start your database server with npx json-server --watch db/db.json --routes db/routes.json ✅
-// - Use fetch along with what we learned about useEffect to get the data from your API
-// - Use the data to render your components on the page
+// - Use fetch along with what we learned about useEffect to get the data from your API ✅
+// - Use the data to render your components on the page ✅
 import "./App.css";
+import { Article } from "./components/Article";
+export type ImageType = {
+  id: number;
+  title: string;
+  image: string;
+  likes: number;
+  comments: Comment[];
+}
+export type CommentType = {
+  id: number;
+  content: string;
+  imageId: number;
+}
 
 function App() {
   const [images, setImages] = useState([]);
@@ -26,26 +39,7 @@ function App() {
 
       <section className="image-container">
         {images.map((image) => (
-          <article className="image-card">
-            <h2 className="title">{image.title}</h2>
-            <img src={image.image} className="image" />
-            <div className="likes-section">
-              <span className="likes">{image.likes}</span>
-              <button className="like-button">♥</button>
-            </div>
-
-            {comments.map((comment) =>
-              image.id === comment.imageId ? (
-                <ul className="comments">
-                  <li className="comment">
-                    {comment.content}
-                  </li>
-                
-                </ul>
-              ) : null
-              
-            )}
-          </article>
+          <Article image={image} comments={comments} />
         ))}
       </section>
     </div>
@@ -53,4 +47,5 @@ function App() {
 }
 
 export default App;
-{}
+{
+}
