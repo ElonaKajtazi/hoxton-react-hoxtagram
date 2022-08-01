@@ -11,7 +11,7 @@ export function ArticleComments({ comment, deleteComment }: Props) {
         {comment.content}
         <button
           onClick={() => {
-            deleteComment(comment.imageId);
+            deleteComment(comment.id);
           }}
         >
           🗑️

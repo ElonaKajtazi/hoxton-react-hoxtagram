@@ -36,20 +36,23 @@ function App() {
       .then((commentsFromServer) => setComments(commentsFromServer));
   }, []);
 
-  function deleteComment(commentId: number) {
-    const commentsCopy = comments.filter(
-      (comment) => comment.imageId !== comment.id
-    );
-    fetch(`http://localhost:5000/comments/${id}`, {
+  function deleteComment(id: number) {
+    const commentsCopy = comments.filter((comment) => comment.id !== id);
+    fetch(`http://localhost:3000/comments/${id}`, {
       method: "DELETE",
     });
     setComments(commentsCopy);
+    // const todosCopy = todos.filter(todo => todo.id !== id)
+
+    // fetch(`http://localhost:3000/todos/${id}`, {
+    //   method: 'DELETE'
   }
   return (
     <div className="App">
+ 
+      <img className="logo" src="assets/hoxtagram-logo.png" />
       <AddArticleForm />
 
-      <img className="logo" src="assets/hoxtagram-logo.png" />
 
       <section className="image-container">
         {images.map((image) => (

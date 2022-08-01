@@ -28,11 +28,6 @@
   "comments": [
     {
       "id": 2,
-      "content": "He has the paws for this!",
-      "imageId": 2
-    },
-    {
-      "id": 2,
       "content": "Cute coder cats!",
       "imageId": 2
     },
@@ -45,6 +40,11 @@
       "content": "Wish I was there",
       "imageId": 3,
       "id": 8
+    },
+    {
+      "content": "vbn",
+      "imageId": 2,
+      "id": 9
     }
   ]
 }

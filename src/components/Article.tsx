@@ -1,5 +1,7 @@
+import { AddCommentForm } from "../AddCommentForm";
 import { ImageType } from "../App";
 import { CommentType } from "../App";
+
 import { ArticleComments } from "./ArticleComments";
 
 type Props = {
@@ -10,7 +12,10 @@ type Props = {
 export function Article({ image, comments, deleteComment }: Props) {
   return (
     <article className="image-card">
-      <h2 className="title">{image.title}</h2>
+      <div className="image__top-section">
+        <h2 className="title">{image.title}</h2>
+        <button className="image__delete-button">❌</button>
+      </div>
       <img src={image.image} className="image" />
       <div className="likes-section">
         <span className="likes">{image.likes}</span>
@@ -22,6 +27,7 @@ export function Article({ image, comments, deleteComment }: Props) {
           <ArticleComments comment={comment} deleteComment={deleteComment} />
         ) : null
       )}
+      <AddCommentForm />
     </article>
   );
 }
