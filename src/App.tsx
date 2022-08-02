@@ -28,24 +28,24 @@ function App() {
   const [comments, setComments] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/images")
+    fetch("http://localhost:5000/images")
       .then((resp) => resp.json())
       .then((imagesFromServer) => setImages(imagesFromServer));
-    fetch("http://localhost:3000/comments")
+    fetch("http://localhost:5000/comments")
       .then((resp) => resp.json())
       .then((commentsFromServer) => setComments(commentsFromServer));
   }, []);
 
   function deleteComment(id: number) {
     const commentsCopy = comments.filter((comment) => comment.id !== id);
-    fetch(`http://localhost:3000/comments/${id}`, {
+    fetch(`http://localhost:5000/comments/${id}`, {
       method: "DELETE",
     });
     setComments(commentsCopy);
   }
   function deleteArticle(id: number) {
     const imagesCopy = images.filter((image) => image.id !== id);
-    fetch(`http://localhost:3000/images${id}`, {
+    fetch(`http://localhost:5000/images${id}`, {
       method: "DELETE",
     });
     setImages(imagesCopy);
@@ -58,7 +58,7 @@ function App() {
       image,
     };
 
-    fetch("http://localhost:3000/images", {
+    fetch("http://localhost:5000/images", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -77,7 +77,7 @@ function App() {
    
     };
 
-    fetch("http://localhost:3000/comments", {
+    fetch("http://localhost:5000/comments", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
